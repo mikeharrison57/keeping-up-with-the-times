@@ -5,12 +5,11 @@ import { fetchNyTimesStories } from '../utils/api-calls';
 const App = () => {
 	const [articles, setArticles] = useState([ ]);
 	const [error, setError] = useState('');
-  const [sections, setSections] = useState([ ]);
-
-	const getArticlesBySection = async () => {
-		fetchNyTimesStories()
+  
+	const getArticlesBySection = async section => {
+		fetchNyTimesStories(section)
 			.then((data) => {
-				setArticles([...articles, ...data.results]);
+				setArticles([...data.results]);
 			})
 			.catch((error) => {
 				console.log(error);
@@ -18,26 +17,14 @@ const App = () => {
 			});
 	};
 
-  // const getSections = () => {
-  //   const sectionArr = articles.reduce((sectArr, article) => {
-  //     console.log(article.section)
-  //     if (!sectArr.includes(article.section)) {
-  //       sectArr.push(article.section)
-  //     }
-  //     return sectArr
-  //   }, []);
-  //   setSections([...sections, ...sectionArr])
-  // }
-  
-	// useEffect(() => {
-  //   getArticlesBySection();
-  //   // getSections();
-	// }, []);
-
 	return (
 		<main className='App'>
-      {/* {console.log(sections)} */}
-			<Navbar />
+			{console.log(articles)}
+			<Navbar 
+        getArticlesBySection={getArticlesBySection}
+        setArticles={setArticles}
+        articles={articles}
+      />
 		</main>
 	);
 };
