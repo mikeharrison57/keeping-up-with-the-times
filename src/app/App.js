@@ -29,10 +29,10 @@ const App = () => {
   //   setSections([...sections, ...sectionArr])
   // }
   
-	useEffect(() => {
-    getArticlesBySection();
-    // getSections();
-	}, []);
+	// useEffect(() => {
+  //   getArticlesBySection();
+  //   // getSections();
+	// }, []);
 
 	return (
 		<main className='App'>
