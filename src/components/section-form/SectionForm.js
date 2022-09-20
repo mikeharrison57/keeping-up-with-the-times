@@ -15,8 +15,9 @@ const SectionForm = () => {
 
 	return (
     <form>
+      {console.log(section)}
       <select value={section} onChange={event => setSection(event.target.value)} required>
-        <option>--Select A Section--</option>
+        <option value={''}>--Select A Section--</option>
         {selectSection()}
       </select>
     </form>
