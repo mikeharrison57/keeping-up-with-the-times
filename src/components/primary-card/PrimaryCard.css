@@ -1,0 +1,15 @@
+.primary-card {
+  box-sizing: border-box;
+  border: 3px solid black;
+  padding: 1.5rem;
+  background-color: #05668D ;
+  color: #F0F3BD;
+  font-size: 1rem;
+  margin: .5rem;
+  text-align: center;
+  width: 60vw;
+}
+
+.primary-img {
+  width: 40vw;
+}
