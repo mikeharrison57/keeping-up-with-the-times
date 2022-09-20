@@ -8,10 +8,10 @@ body {
   background-color: grey;
 }
 
-section,
+/* section,
 article {
   border: dashed;
-}
+} */
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

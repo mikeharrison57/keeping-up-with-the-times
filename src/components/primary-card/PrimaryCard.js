@@ -1,13 +1,16 @@
+import './PrimaryCard.css';
+
 const PrimaryCard = ({ article }) => {
-  return (
-		<article className="primary-card">
-			<h2>{article.title}</h2>
-			<img 
-        src={article.multimedia[1].url}
-        alt={article.title} 
-      />
+	// const primaryImg = article.multimedia[1].url;
+
+	return (
+		<article className='primary-card'>
+			<h3>{article.title}</h3>
+			{article.multimedia[1].url && (
+				<img className='primary-img' src={article.multimedia[1].url} alt={article.title} />
+			)}
 		</article>
 	);
-}
+};
 
 export default PrimaryCard;
