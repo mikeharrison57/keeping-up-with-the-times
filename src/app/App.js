@@ -11,8 +11,8 @@ const App = () => {
 			.then((data) => {
 				setArticles([...data.results]);
 			})
-			.catch((error) => {
-				console.log(error);
+			.catch((err) => {
+				console.log(err);
 				setError(`Error: ${error.status}: ${error.statusText}`);
 			});
 	};
