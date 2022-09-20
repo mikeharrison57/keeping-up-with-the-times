@@ -1,7 +1,7 @@
 const PrimaryCard = ({ article }) => {
   return (
-		<article>
-			<h3>{article.title}</h3>
+		<article className="primary-card">
+			<h2>{article.title}</h2>
 			<img 
         src={article.multimedia[1].url}
         alt={article.title} 
