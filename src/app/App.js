@@ -1,11 +1,33 @@
-import Navbar from "../components/navbar/Navbar";
+import React, { useState, useEffect } from 'react';
+import Navbar from '../components/navbar/Navbar';
+import { fetchNyTimesStories } from '../utils/api-calls';
 
 const App = () => {
-  return (
-    <main className="App">
-      <Navbar />
-    </main>
-  );
-}
+	const [articles, setArticles] = useState([]);
+	const [error, setError] = useState('');
+
+	const getArticlesByCategory = async () => {
+		fetchNyTimesStories()
+			.then((data) => {
+        // console.log(data)
+				setArticles([...articles, ...data.results]);
+			})
+			.catch((error) => {
+				console.log(error);
+				setError(`Error: ${error.status}: ${error.statusText}`);
+			});
+	};
+
+	useEffect(() => {
+		getArticlesByCategory();
+	}, []);
+
+	return (
+		<main className='App'>
+			{console.log(articles)}
+			<Navbar />
+		</main>
+	);
+};
 
 export default App;
