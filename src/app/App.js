@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from '../components/navbar/Navbar';
 import { fetchNyTimesStories } from '../utils/api-calls';
+import Navbar from '../components/navbar/Navbar';
+import PrimaryContainer from '../components/primary-container/PrimaryContainer';
 
 const App = () => {
 	const [articles, setArticles] = useState([ ]);
@@ -25,6 +26,7 @@ const App = () => {
         setArticles={setArticles}
         articles={articles}
       />
+			<PrimaryContainer articles={articles} />
 		</main>
 	);
 };
