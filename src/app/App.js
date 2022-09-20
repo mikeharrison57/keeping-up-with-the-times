@@ -3,13 +3,13 @@ import Navbar from '../components/navbar/Navbar';
 import { fetchNyTimesStories } from '../utils/api-calls';
 
 const App = () => {
-	const [articles, setArticles] = useState([]);
+	const [articles, setArticles] = useState([ ]);
 	const [error, setError] = useState('');
+  const [sections, setSections] = useState([ ]);
 
-	const getArticlesByCategory = async () => {
+	const getArticlesBySection = async () => {
 		fetchNyTimesStories()
 			.then((data) => {
-        // console.log(data)
 				setArticles([...articles, ...data.results]);
 			})
 			.catch((error) => {
@@ -18,13 +18,25 @@ const App = () => {
 			});
 	};
 
+  // const getSections = () => {
+  //   const sectionArr = articles.reduce((sectArr, article) => {
+  //     console.log(article.section)
+  //     if (!sectArr.includes(article.section)) {
+  //       sectArr.push(article.section)
+  //     }
+  //     return sectArr
+  //   }, []);
+  //   setSections([...sections, ...sectionArr])
+  // }
+  
 	useEffect(() => {
-		getArticlesByCategory();
+    getArticlesBySection();
+    // getSections();
 	}, []);
 
 	return (
 		<main className='App'>
-			{console.log(articles)}
+      {/* {console.log(sections)} */}
 			<Navbar />
 		</main>
 	);
