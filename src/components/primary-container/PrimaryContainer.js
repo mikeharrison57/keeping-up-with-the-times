@@ -1,20 +1,30 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PrimaryCard from '../primary-card/PrimaryCard';
 import './PrimaryContainer.css';
 
-const PrimaryContainer = ({ section, sectionArticles, getArticlesBySection }) => {
-
+const PrimaryContainer = ({
+	section,
+	sectionArticles,
+	getArticlesBySection,
+	getSingleArticle,
+}) => {
 	const maintainSectArts = () => {
-		getArticlesBySection(section)
-	}
+		getArticlesBySection(section);
+	};
 
 	useEffect(() => {
 		maintainSectArts();
-	}, [section])
-	
+	}, [section]);
+
 	const establishPrimaryArticles = () => {
 		const primaryCards = sectionArticles.map((article) => {
-			return <PrimaryCard key={Math.random()} article={article} />;
+			return (
+				<PrimaryCard
+					key={Math.random()}
+					article={article}
+					getSingleArticle={getSingleArticle}
+				/>
+			);
 		});
 		return primaryCards;
 	};

@@ -1,14 +1,21 @@
 import './PrimaryCard.css';
 
-const PrimaryCard = ({ article }) => {
-	const primaryImg = article.multimedia[1].url;
+const PrimaryCard = ({ article, getSingleArticle }) => {
+	const submitSingleArt = () => {
+		getSingleArticle(article)
+	};
 
 	return (
-		<article className='primary-card'>
-			<h3>{article.title}</h3>
-			{primaryImg && (
-				<img className='primary-img' src={primaryImg} alt={article.title} />
-			)}
+		<article onClick={() => submitSingleArt()} className='primary-card'>
+			<h2>{article.title}</h2>
+			{article.multimedia ? 
+			<img 
+				className='primary-img' 
+				src={article.multimedia[1].url} 
+				alt={article.title} 
+			/>
+			: <p></p>
+			}
 		</article>
 	);
 };
