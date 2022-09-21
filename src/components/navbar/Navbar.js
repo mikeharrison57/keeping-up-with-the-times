@@ -1,15 +1,14 @@
-import SectionForm from "../section-form/SectionForm";
-import './Navbar.css'
+import SectionForm from '../section-form/SectionForm';
+import { NavLink } from 'react-router-dom';
+import './Navbar.css';
 
-const Navbar = ({ getArticlesBySection, setArticles, articles }) => {
+const Navbar = ({ getArticlesBySection }) => {
 	return (
 		<header className='navbar'>
-			<h1>Keeping Up With The Times</h1>
-			<SectionForm
-				getArticlesBySection={getArticlesBySection}
-				setArticles={setArticles}
-				articles={articles}
-			/>
+			<NavLink to='/'>
+				<h1 className='title'>Keeping Up With The Times</h1>
+			</NavLink>
+			<SectionForm getArticlesBySection={getArticlesBySection} />
 		</header>
 	);
 };

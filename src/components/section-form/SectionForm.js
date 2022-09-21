@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { sections } from './section-data';
+import { Link } from 'react-router-dom';
 
-const SectionForm = ({ getArticlesBySection, setArticles, articles }) => {
-	const [section, setSection] = useState('home');
+const SectionForm = ({ getArticlesBySection }) => {
+	const [section, setSection] = useState('');
 
 	const selectSection = () => {
 		const sectionOptions = sections.map((section) => {
@@ -18,29 +19,20 @@ const SectionForm = ({ getArticlesBySection, setArticles, articles }) => {
 	const submitSelectedSection = () => {
 		getArticlesBySection(section);
 	};
-
-  
-	useEffect(() => {
-    submitSelectedSection();
-    return () => {
-      clearArticles();
-    }
-	}, [section]);
-  
-  const clearArticles = () => {
-    setArticles([ ])
-  }
-
+	
 	return (
-		<form onSubmit={() => submitSelectedSection()}>
+		<form>
 			{console.log(section)}
-			<select
-				value={section}
-				onChange={(e) => setSection(e.target.value)}
-				required>
-				<option value={''}>--Select A Section--</option>
-				{selectSection()}
-			</select>
+				<select
+					value={section}
+					onChange={(e) => setSection(e.target.value)}
+					required>
+					<option value={''}>--Select A Section--</option>
+					{selectSection()}
+				</select>
+			<Link to={`${section}`}>
+				<button onClick={() => submitSelectedSection()}>Select Section</button>
+			</Link>
 		</form>
 	);
 };
