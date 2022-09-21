@@ -1,6 +1,6 @@
 import './IndividualArticle.css';
 
-const IndividualArticle = () => {
+const IndividualArticle = ({ title, singleArticle }) => {
   return (
     <section>
       <article>

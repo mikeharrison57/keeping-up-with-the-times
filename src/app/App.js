@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { fetchHomeNyTimesStories, fetchNyTimesStoriesBySection } from '../utils/api-calls';
+import {
+	fetchHomeNyTimesStories,
+	fetchNyTimesStoriesBySection,
+} from '../utils/api-calls';
 import { Route, Switch } from 'react-router-dom';
 import Navbar from '../components/navbar/Navbar';
 import Home from '../components/home/Home';
 import PrimaryContainer from '../components/primary-container/PrimaryContainer';
+import IndividualArticle from '../components/individual-article/IndividualArticle';
 
 const App = () => {
 	const [articles, setArticles] = useState([]);
@@ -34,7 +38,7 @@ const App = () => {
 	};
 
 	const getSingleArticle = (foundArt) => {
-		setSingleArticle({...singleArticle, ...foundArt});
+		setSingleArticle({ ...singleArticle, ...foundArt });
 	};
 
 	useEffect(() => {
@@ -47,10 +51,7 @@ const App = () => {
 			<Navbar getArticlesBySection={getArticlesBySection} />
 			<Switch>
 				<Route exact path='/'>
-					<Home 
-						articles={articles}
-						getSingleArticle={getSingleArticle}
-					/>
+					<Home articles={articles} getSingleArticle={getSingleArticle} />
 				</Route>
 				<Route
 					exact
@@ -64,6 +65,19 @@ const App = () => {
 								getSingleArticle={getSingleArticle}
 							/>
 						);
+					}}
+				/>
+				<Route
+					exact
+					path='/:section/:title'
+					render={({ match }) => {
+						console.log(match.params)
+						return (
+							<IndividualArticle 
+								title={match.params.title}
+								singleArticle={singleArticle}
+							/>
+						) 
 					}}
 				/>
 			</Switch>
