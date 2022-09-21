@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { sections } from './section-data';
 import { Link } from 'react-router-dom';
 
-const SectionForm = ({ getArticlesBySection, setArticles }) => {
-	const [section, setSection] = useState('home');
+const SectionForm = ({ getArticlesBySection }) => {
+	const [section, setSection] = useState('');
 
 	const selectSection = () => {
 		const sectionOptions = sections.map((section) => {
@@ -20,22 +20,13 @@ const SectionForm = ({ getArticlesBySection, setArticles }) => {
 		getArticlesBySection(section);
 	};
 
-  
-	useEffect(() => {
-    submitSelectedSection();
-    return () => {
-      clearArticles();
-    }
-	}, [section]);
-  
-  const clearArticles = () => {
-    setArticles([ ])
-  }
+	// useEffect(() => {
+	// 	submitSelectedSection();
+	// }, [section]);
 
 	return (
-		<form onSubmit={() => submitSelectedSection()}>
+		<form>
 			{console.log(section)}
-			<Link to={`/${section}`}>
 				<select
 					value={section}
 					onChange={(e) => setSection(e.target.value)}
@@ -43,6 +34,8 @@ const SectionForm = ({ getArticlesBySection, setArticles }) => {
 					<option value={''}>--Select A Section--</option>
 					{selectSection()}
 				</select>
+			<Link to={`${section}`}>
+				<button onClick={() => submitSelectedSection()}>Select Section</button>
 			</Link>
 		</form>
 	);
