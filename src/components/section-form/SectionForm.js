@@ -19,11 +19,7 @@ const SectionForm = ({ getArticlesBySection }) => {
 	const submitSelectedSection = () => {
 		getArticlesBySection(section);
 	};
-
-	// useEffect(() => {
-	// 	submitSelectedSection();
-	// }, [section]);
-
+	
 	return (
 		<form>
 			{console.log(section)}
