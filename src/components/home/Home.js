@@ -1,7 +1,7 @@
 import PrimaryCard from '../primary-card/PrimaryCard';
-import './PrimaryContainer.css';
+import './Home.css';
 
-const PrimaryContainer = ({ articles }) => {
+const Home = ({ articles }) => {
 	const establishPrimaryArticles = () => {
 		const primaryCards = articles.map((article) => {
 			return <PrimaryCard key={Math.random()} article={article} />;
@@ -9,7 +9,11 @@ const PrimaryContainer = ({ articles }) => {
 		return primaryCards;
 	};
 
-	return <section className='primary-container'>{establishPrimaryArticles()}</section>;
+	return (
+		<section className='primary-container'>
+			{establishPrimaryArticles()}
+		</section>
+	);
 };
 
-export default PrimaryContainer;
+export default Home;

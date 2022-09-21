@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { fetchHomeNyTimesStories, fetchNyTimesStoriesBySection } from '../utils/api-calls';
 import { Route, Switch } from 'react-router-dom';
 import Navbar from '../components/navbar/Navbar';
+import Home from '../components/home/Home';
 import PrimaryContainer from '../components/primary-container/PrimaryContainer';
 
 const App = () => {
@@ -39,9 +40,9 @@ const App = () => {
 				articles={articles}
 			/>
 			<Switch>
-				{/* <Route exact path='/home'>
-					<PrimaryContainer articles={articles} />
-				</Route> */}
+				<Route exact path='/'>
+					<Home articles={articles} />
+				</Route>
 				<Route exact path='/:section'>
 					<PrimaryContainer articles={articles} />
 				</Route>
