@@ -67,9 +67,20 @@ const App = () => {
 						);
 					}}
 				/>
-				<Route exact path='/:section/:title'>
-					<IndividualArticle singleArticle={singleArticle} />
-				</Route>
+				<Route
+					exact
+					path='/:section/:title'
+					render={({ match }) => {
+						console.log(match.params)
+						return (
+							<IndividualArticle
+								singleArticle={singleArticle}
+								articles={articles}
+								title={match.params.title}
+							/>
+						);
+					}}
+				/>
 			</Switch>
 		</main>
 	);

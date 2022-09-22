@@ -5,7 +5,6 @@ const sections = [
 	'food', 
 	'fashion',
 	'health',
-	'home',
 	'insider',
 	'movies',
 	'nyregion',
