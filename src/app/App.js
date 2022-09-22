@@ -7,6 +7,7 @@ import { Route, Switch } from 'react-router-dom';
 import Navbar from '../components/navbar/Navbar';
 import Home from '../components/home/Home';
 import PrimaryContainer from '../components/primary-container/PrimaryContainer';
+import IndividualArticle from '../components/individual-article/IndividualArticle';
 
 const App = () => {
 	const [articles, setArticles] = useState([]);
@@ -51,11 +52,25 @@ const App = () => {
 					exact
 					path='/:section'
 					render={({ match }) => {
-						console.log(match.params.section);
 						return (
 							<PrimaryContainer
 								section={match.params.section}
 								sectionArticles={sectionArticles}
+								getArticlesBySection={getArticlesBySection}
+							/>
+						);
+					}}
+				/>
+				<Route
+					exact
+					path='/:section/:title'
+					render={({ match }) => {
+						console.log(match.params)
+						return (
+							<IndividualArticle
+								sectionArticles={sectionArticles}
+								section={match.params.section}
+								title={match.params.title}
 								getArticlesBySection={getArticlesBySection}
 							/>
 						);

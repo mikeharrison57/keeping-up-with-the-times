@@ -10,6 +10,13 @@
   width: 60vw;
 }
 
+.primary-card:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: all .5s;
+  /* opacity: .8; */
+}
+
 .primary-img {
   width: 40vw;
 }
