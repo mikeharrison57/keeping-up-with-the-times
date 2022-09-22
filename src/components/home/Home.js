@@ -1,14 +1,13 @@
 import PrimaryCard from '../primary-card/PrimaryCard';
 import './Home.css';
 
-const Home = ({ articles, getSingleArticle }) => {
+const Home = ({ articles }) => {
 	const establishPrimaryArticles = () => {
 		const primaryCards = articles.map((article) => {
 			return (
 				<PrimaryCard
 					key={Math.random()}
 					article={article}
-					getSingleArticle={getSingleArticle}
 				/>
 			);
 		});

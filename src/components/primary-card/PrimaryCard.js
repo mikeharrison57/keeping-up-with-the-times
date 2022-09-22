@@ -1,15 +1,11 @@
 import './PrimaryCard.css';
 import { Link } from 'react-router-dom';
 
-const PrimaryCard = ({ article, getSingleArticle }) => {
-	const submitSingleArt = () => {
-		getSingleArticle(article)
-	};
-
+const PrimaryCard = ({ article }) => {
 	if (article.title) {
 		return (
 			<Link to={`/${article.section}/${article.title}`}>
-				<article onClick={() => submitSingleArt()} className='primary-card'>
+				<article className='primary-card'>
 					<h2>{article.title}</h2>
 					{article.multimedia ? 
 					<img 

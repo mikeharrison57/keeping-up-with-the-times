@@ -12,7 +12,6 @@ import IndividualArticle from '../components/individual-article/IndividualArticl
 const App = () => {
 	const [articles, setArticles] = useState([]);
 	const [sectionArticles, setSectionArticles] = useState([]);
-	const [singleArticle, setSingleArticle] = useState({});
 	const [error, setError] = useState('');
 
 	const getHomeArticles = async () => {
@@ -37,21 +36,17 @@ const App = () => {
 			});
 	};
 
-	const getSingleArticle = (foundArt) => {
-		setSingleArticle({ ...singleArticle, ...foundArt });
-	};
-
 	useEffect(() => {
 		getHomeArticles();
 	}, []);
 
 	return (
 		<main className='App'>
-			{console.log(singleArticle)}
+			{console.log(sectionArticles)}
 			<Navbar getArticlesBySection={getArticlesBySection} />
 			<Switch>
 				<Route exact path='/'>
-					<Home articles={articles} getSingleArticle={getSingleArticle} />
+					<Home articles={articles} />
 				</Route>
 				<Route
 					exact
@@ -62,7 +57,6 @@ const App = () => {
 								section={match.params.section}
 								sectionArticles={sectionArticles}
 								getArticlesBySection={getArticlesBySection}
-								getSingleArticle={getSingleArticle}
 							/>
 						);
 					}}
@@ -74,9 +68,10 @@ const App = () => {
 						console.log(match.params)
 						return (
 							<IndividualArticle
-								singleArticle={singleArticle}
-								articles={articles}
+								sectionArticles={sectionArticles}
+								section={match.params.section}
 								title={match.params.title}
+								getArticlesBySection={getArticlesBySection}
 							/>
 						);
 					}}

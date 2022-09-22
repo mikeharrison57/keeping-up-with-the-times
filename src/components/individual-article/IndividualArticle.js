@@ -2,46 +2,50 @@ import './IndividualArticle.css';
 import React, { useState, useEffect } from 'react';
 const dayjs = require('dayjs');
 
-const IndividualArticle = ({ singleArticle, articles, title }) => {
-	const [article, setArticle] = useState({});
+const IndividualArticle = ({
+	title,
+	section,
+	getArticlesBySection,
+	sectionArticles
+}) => {
 
-	const foundArticle = articles.find((art) => art.title === title);
+	const foundArticle = sectionArticles.find(art => art.title === title);
 
 	useEffect(() => {
-		setArticle(foundArticle);
-	}, [title, articles]);
-
+		getArticlesBySection(section);
+	}, [title, section]);
+  
 	return (
 		<>
-			{article && (
+			{console.log(foundArticle)}
+			{foundArticle && (
 				<section className='single-article'>
-					{console.log(article)}
 					<article>
-						<h2>{article.title}</h2>
+						<h2>{foundArticle.title}</h2>
 					</article>
 					<article>
-						<p>{article.byline}</p>
+						<p>{foundArticle.byline}</p>
 						<p>
 							Updated:{' '}
-							{dayjs(article.updated_date).format('dddd, MMMM DD, YYYY')}
+							{dayjs(foundArticle.updated_date).format('dddd, MMMM DD, YYYY')}
 						</p>
 					</article>
 					<article>
-						{article.multimedia ? (
+						{foundArticle.multimedia ? (
 							<img
 								className='primary-img'
-								src={article.multimedia[0].url}
-								alt={article.title}
+								src={foundArticle.multimedia[0].url}
+								alt={foundArticle.title}
 							/>
 						) : (
 							<p></p>
 						)}
-						<p>{article.abstract}</p>
+						<p>{foundArticle.abstract}</p>
 					</article>
 					<article>
 						<a
 							className='website'
-							href={article.short_url}
+							href={foundArticle.short_url}
 							target='_blank'
 							rel='noopener noreferrer'>
 							Read the Full Article Here!
