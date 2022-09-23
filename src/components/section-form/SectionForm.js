@@ -21,7 +21,7 @@ const SectionForm = ({ getArticlesBySection }) => {
 		if (section) {
 			getArticlesBySection(section);
 		} else {
-			alert('Please Select a Section')
+			alert('Please Select a Section');
 		}
 	};
 

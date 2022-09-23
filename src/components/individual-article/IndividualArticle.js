@@ -36,13 +36,13 @@ const IndividualArticle = ({
 						)}
 						<p>{foundArticle.abstract}</p>
 					</article>
-						<a
-							className='website'
-							href={foundArticle.short_url}
-							target='_blank'
-							rel='noopener noreferrer'>
-							Read the Full Article Here!
-						</a>
+					<a
+						className='website'
+						href={foundArticle.short_url}
+						target='_blank'
+						rel='noopener noreferrer'>
+						Read the Full Article Here!
+					</a>
 				</section>
 			)}
 		</>

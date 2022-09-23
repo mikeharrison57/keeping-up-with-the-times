@@ -1,8 +1,8 @@
 const sections = [
-	'arts', 
+	'arts',
 	'automobiles',
-	'books', 
-	'food', 
+	'books',
+	'food',
 	'fashion',
 	'health',
 	'insider',
@@ -20,7 +20,7 @@ const sections = [
 	'travel',
 	'upshot',
 	'us',
-	'world'
+	'world',
 ];
 
 export { sections };
