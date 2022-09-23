@@ -21,7 +21,7 @@ const App = () => {
 			})
 			.catch((err) => {
 				console.log(err);
-				setError(`Error: ${error.status}: ${error.statusText}`);
+				setError(`${err}`);
 			});
 	};
 
@@ -32,7 +32,7 @@ const App = () => {
 			})
 			.catch((err) => {
 				console.log(err);
-				setError(`Error: ${error.status}: ${error.statusText}`);
+				setError(`${err}`);
 			});
 	};
 
@@ -40,45 +40,47 @@ const App = () => {
 		getHomeArticles();
 	}, []);
 
-	return (
-		<main className='App'>
-			{console.log(sectionArticles)}
-			<Navbar getArticlesBySection={getArticlesBySection} />
-			<Switch>
-				<Route exact path='/'>
-					<Home articles={articles} />
-				</Route>
-				<Route
-					exact
-					path='/:section'
-					render={({ match }) => {
-						return (
-							<PrimaryContainer
-								section={match.params.section}
-								sectionArticles={sectionArticles}
-								getArticlesBySection={getArticlesBySection}
-							/>
-						);
-					}}
-				/>
-				<Route
-					exact
-					path='/:section/:title'
-					render={({ match }) => {
-						console.log(match.params)
-						return (
-							<IndividualArticle
-								sectionArticles={sectionArticles}
-								section={match.params.section}
-								title={match.params.title}
-								getArticlesBySection={getArticlesBySection}
-							/>
-						);
-					}}
-				/>
-			</Switch>
-		</main>
-	);
+	if (error) {
+		return <h1 style={{ textAlign: 'center' }}> {error}</h1>;
+	} else {
+		return (
+			<main className='App'>
+				<Navbar getArticlesBySection={getArticlesBySection} />
+				<Switch>
+					<Route exact path='/'>
+						<Home articles={articles} />
+					</Route>
+					<Route
+						exact
+						path='/:section'
+						render={({ match }) => {
+							return (
+								<PrimaryContainer
+									section={match.params.section}
+									sectionArticles={sectionArticles}
+									getArticlesBySection={getArticlesBySection}
+								/>
+							);
+						}}
+					/>
+					<Route
+						exact
+						path='/:section/:title'
+						render={({ match }) => {
+							return (
+								<IndividualArticle
+									sectionArticles={sectionArticles}
+									section={match.params.section}
+									title={match.params.title}
+									getArticlesBySection={getArticlesBySection}
+								/>
+							);
+						}}
+					/>
+				</Switch>
+			</main>
+		);
+	}
 };
 
 export default App;

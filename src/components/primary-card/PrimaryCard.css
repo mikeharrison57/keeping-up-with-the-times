@@ -1,22 +1,20 @@
 .primary-card {
   box-sizing: border-box;
-  border: 3px solid black;
-  padding: 1.5rem;
-  background-color: #05668D ;
-  color: #F0F3BD;
+  padding: 2rem;
+  padding-bottom: 4rem;
+  background-color: lightblue ;
+  color: black;
   font-size: 1rem;
-  margin: .5rem;
+  margin-bottom: 4rem;
   text-align: center;
-  width: 60vw;
+  width: 70vw;
 }
 
-.primary-card:hover {
+.art-title:hover {
+  color: #b22222;
   cursor: pointer;
-  transform: scale(1.1);
-  transition: all .5s;
-  /* opacity: .8; */
 }
 
 .primary-img {
-  width: 40vw;
+  width: 50vw;
 }

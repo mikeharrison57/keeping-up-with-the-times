@@ -2,6 +2,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem;
-  margin-top: 5rem;
+  padding: 1.25rem;
+  margin-top: 11.2rem;
+  color: black;
+}
+
+.single-title {
+  font-size: 2rem;
+}
+
+.website {
+  background-color: lightblue;
+  padding: .75rem;
+  border: solid;
+  border-radius: 10%;
 }

@@ -1,36 +1,30 @@
 import './IndividualArticle.css';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 const dayjs = require('dayjs');
 
 const IndividualArticle = ({
 	title,
 	section,
 	getArticlesBySection,
-	sectionArticles
+	sectionArticles,
 }) => {
-
-	const foundArticle = sectionArticles.find(art => art.title === title);
+	const foundArticle = sectionArticles.find((art) => art.title === title);
 
 	useEffect(() => {
 		getArticlesBySection(section);
 	}, [title, section]);
-  
+
 	return (
 		<>
-			{console.log(foundArticle)}
 			{foundArticle && (
 				<section className='single-article'>
 					<article>
-						<h2>{foundArticle.title}</h2>
-					</article>
-					<article>
+						<h2 className='single-title'>{foundArticle.title}</h2>
 						<p>{foundArticle.byline}</p>
 						<p>
 							Updated:{' '}
 							{dayjs(foundArticle.updated_date).format('dddd, MMMM DD, YYYY')}
 						</p>
-					</article>
-					<article>
 						{foundArticle.multimedia ? (
 							<img
 								className='primary-img'
@@ -42,15 +36,13 @@ const IndividualArticle = ({
 						)}
 						<p>{foundArticle.abstract}</p>
 					</article>
-					<article>
-						<a
-							className='website'
-							href={foundArticle.short_url}
-							target='_blank'
-							rel='noopener noreferrer'>
-							Read the Full Article Here!
-						</a>
-					</article>
+					<a
+						className='website'
+						href={foundArticle.short_url}
+						target='_blank'
+						rel='noopener noreferrer'>
+						Read the Full Article Here!
+					</a>
 				</section>
 			)}
 		</>

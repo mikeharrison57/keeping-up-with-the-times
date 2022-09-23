@@ -5,7 +5,7 @@ import './PrimaryContainer.css';
 const PrimaryContainer = ({
 	section,
 	sectionArticles,
-	getArticlesBySection
+	getArticlesBySection,
 }) => {
 	const maintainSectArts = () => {
 		getArticlesBySection(section);
@@ -17,12 +17,7 @@ const PrimaryContainer = ({
 
 	const establishPrimaryArticles = () => {
 		const primaryCards = sectionArticles.map((article) => {
-			return (
-				<PrimaryCard
-					key={Math.random()}
-					article={article}
-				/>
-			);
+			return <PrimaryCard key={Math.random()} article={article} />;
 		});
 		return primaryCards;
 	};

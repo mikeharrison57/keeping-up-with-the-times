@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { sections } from './section-data';
 import { Link } from 'react-router-dom';
+import './SectionForm.css';
 
 const SectionForm = ({ getArticlesBySection }) => {
 	const [section, setSection] = useState('');
@@ -17,19 +18,22 @@ const SectionForm = ({ getArticlesBySection }) => {
 	};
 
 	const submitSelectedSection = () => {
-		getArticlesBySection(section);
+		if (section) {
+			getArticlesBySection(section);
+		} else {
+			alert('Please Select a Section');
+		}
 	};
-	
+
 	return (
-		<form>
-			{console.log(section)}
-				<select
-					value={section}
-					onChange={(e) => setSection(e.target.value)}
-					required>
-					<option value={''}>--Select A Section--</option>
-					{selectSection()}
-				</select>
+		<form className='section-form'>
+			<select
+				value={section}
+				onChange={(e) => setSection(e.target.value)}
+				required>
+				<option value={''}>--Select A Section--</option>
+				{selectSection()}
+			</select>
 			<Link to={`${section}`}>
 				<button onClick={() => submitSelectedSection()}>Select Section</button>
 			</Link>
