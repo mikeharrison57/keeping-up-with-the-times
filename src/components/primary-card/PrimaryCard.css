@@ -1,6 +1,7 @@
 .primary-card {
   box-sizing: border-box;
-  padding: 1rem;
+  padding: 2rem;
+  padding-bottom: 4rem;
   background-color: lightblue ;
   color: black;
   font-size: 1rem;
@@ -16,6 +17,4 @@
 
 .primary-img {
   width: 50vw;
-  /* border: solid black; */
-  /* padding: 2rem; */
 }

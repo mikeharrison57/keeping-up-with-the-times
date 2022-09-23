@@ -41,7 +41,7 @@ const App = () => {
 	}, []);
 
 	if (error) {
-		return <h1>{error}</h1>;
+		return <h1 style={{textAlign: 'center'}}> {error}</h1>;
 	} else {
 		return (
 			<main className='App'>
