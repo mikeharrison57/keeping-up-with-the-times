@@ -32,7 +32,7 @@ const App = () => {
 			})
 			.catch((err) => {
 				console.log(err);
-				setError(`Error: ${error.status}: ${error.statusText}`);
+				setError(`${err}`);
 			});
 	};
 

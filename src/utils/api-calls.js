@@ -16,7 +16,7 @@ const fetchHomeNyTimesStories = async () => {
 const fetchNyTimesStoriesBySection = async section => {
   const response = await fetch(`${primaryUrl}${section}.json?api-key=${secureKey}`);
   if (!response.ok) {
-    throw new Error (`Error: ${response.status}: ${response.statusText}`)
+    throw new Error (`${response.status}: ${response.statusText}`)
   };
   const responseJson = await response.json();
   console.log(response);
