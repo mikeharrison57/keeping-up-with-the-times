@@ -8,8 +8,13 @@
   border-radius: 15%;
 }
 
+select {
+  text-align: center;
+}
+
 button {
   background-color: lightblue;
-  padding: .1rem;
+  padding: .2rem;
   margin-top: .5rem;
+  border-radius: 20%;
 }

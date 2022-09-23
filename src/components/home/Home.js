@@ -15,7 +15,7 @@ const Home = ({ articles }) => {
 	};
 
 	return (
-		<section className='primary-container'>
+		<section className='home'>
 			{establishPrimaryArticles()}
 		</section>
 	);
