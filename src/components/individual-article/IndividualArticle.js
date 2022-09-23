@@ -18,6 +18,7 @@ const IndividualArticle = ({
 		<>
 			{foundArticle && (
 				<section className='single-article'>
+					{console.log(foundArticle)}
 					<article>
 						<h2 className='single-title'>{foundArticle.title}</h2>
 						<p>{foundArticle.byline}</p>
