@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300&family=Limelight&family=Ubuntu:wght@300&family=UnifrakturCook&display=swap');
+
 .navbar {
   display: flex;
   justify-content: space-around;
@@ -7,6 +9,12 @@
   position: fixed;
   top: 0;
   width: 100%;
+}
+
+.title {
+  color: white;
+  font-family: 'UnifrakturCook', cursive;
+  padding: 1rem;
 }
 
 .title:hover {
