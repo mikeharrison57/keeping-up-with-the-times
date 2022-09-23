@@ -19,16 +19,12 @@ const IndividualArticle = ({
 			{foundArticle && (
 				<section className='single-article'>
 					<article>
-						<h2>{foundArticle.title}</h2>
-					</article>
-					<article>
+						<h2 className='single-title'>{foundArticle.title}</h2>
 						<p>{foundArticle.byline}</p>
 						<p>
 							Updated:{' '}
 							{dayjs(foundArticle.updated_date).format('dddd, MMMM DD, YYYY')}
 						</p>
-					</article>
-					<article>
 						{foundArticle.multimedia ? (
 							<img
 								className='primary-img'
@@ -40,7 +36,6 @@ const IndividualArticle = ({
 						)}
 						<p>{foundArticle.abstract}</p>
 					</article>
-					<article>
 						<a
 							className='website'
 							href={foundArticle.short_url}
@@ -48,7 +43,6 @@ const IndividualArticle = ({
 							rel='noopener noreferrer'>
 							Read the Full Article Here!
 						</a>
-					</article>
 				</section>
 			)}
 		</>
