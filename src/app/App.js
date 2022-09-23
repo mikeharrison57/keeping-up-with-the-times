@@ -42,15 +42,13 @@ const App = () => {
 
 	return (
 		<main className='App'>
-			{console.log(sectionArticles)}
 			<Navbar getArticlesBySection={getArticlesBySection} />
 			<Switch>
 				<Route exact path='/'>
 					<Home articles={articles} />
 				</Route>
 				<Route
-					exact
-					path='/:section'
+					exact path='/:section'
 					render={({ match }) => {
 						return (
 							<PrimaryContainer
@@ -62,10 +60,8 @@ const App = () => {
 					}}
 				/>
 				<Route
-					exact
-					path='/:section/:title'
+					exact path='/:section/:title'
 					render={({ match }) => {
-						console.log(match.params)
 						return (
 							<IndividualArticle
 								sectionArticles={sectionArticles}

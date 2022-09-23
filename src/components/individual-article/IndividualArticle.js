@@ -1,23 +1,21 @@
 import './IndividualArticle.css';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 const dayjs = require('dayjs');
 
 const IndividualArticle = ({
 	title,
 	section,
 	getArticlesBySection,
-	sectionArticles
+	sectionArticles,
 }) => {
-
-	const foundArticle = sectionArticles.find(art => art.title === title);
+	const foundArticle = sectionArticles.find((art) => art.title === title);
 
 	useEffect(() => {
 		getArticlesBySection(section);
 	}, [title, section]);
-  
+
 	return (
 		<>
-			{console.log(foundArticle)}
 			{foundArticle && (
 				<section className='single-article'>
 					<article>
